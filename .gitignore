@@ -33,3 +33,7 @@ next-env.d.ts
 # local tooling
 .claude
 .impeccable
+
+# internal planning docs (AI reference only, not for the public repo)
+PORTFOLIO_SPEC.md
+PRE_DEPLOYMENT_CHECKLIST.md
