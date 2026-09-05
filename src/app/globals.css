@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -7,7 +9,7 @@
 }
 
 * {
-  scrollbar-color: #2a3a3a #0a0e27;
+  scrollbar-color: #e5e7eb #fafafa;
 }
 
 html {
@@ -15,108 +17,132 @@ html {
 }
 
 body {
-  background-color: #0a0e27;
-  color: #f5f5f5;
+  background-color: #fafafa;
+  color: #171717;
   font-family: var(--font-inter);
+  font-weight: 500;
+  letter-spacing: -0.025em;
 }
 
-/* ---------- Blur fade up (stagger-driven via inline animationDelay) ---------- */
-.animate-blur-fade-up {
-  opacity: 0;
-  animation: blurFadeUp 1s ease-out forwards;
+/* Instrument Serif for editorial moments (headlines, display) */
+h1, h2, h3, .serif {
+  font-family: "Instrument Serif", Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.025em;
 }
 
-/* Held state before the intro splash is dismissed — matches the "from" keyframe
-   of blurFadeUp so entrance elements don't play (and finish) invisibly behind it. */
-.pre-entrance {
-  opacity: 0;
-  filter: blur(20px);
-  transform: translateY(40px);
+/* Section heading — compressed tracking for technical feel */
+.heading-section {
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 1.13;
+  letter-spacing: -0.075em;
+  color: #171717;
 }
 
-@keyframes blurFadeUp {
-  from {
-    opacity: 0;
-    filter: blur(20px);
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    filter: blur(0);
-    transform: translateY(0);
-  }
+/* Subheading */
+.subheading {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.17;
+  letter-spacing: -0.025em;
+  color: #171717;
 }
 
-/* ---------- Hero background: static dark base, no shifting/motion ---------- */
-.hero-background {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  background: #0a0e27;
-  overflow: hidden;
+/* Body text — default weight is already 500 for density */
+p {
+  font-size: 18px;
+  line-height: 1.33;
+  letter-spacing: -0.025em;
+  color: #171717;
 }
 
-/* Minimal color accent (far reduced opacity for less AI-slop aesthetic).
-   Subtle depth layer, not primary visual element. */
-.aurora-blob {
-  position: absolute;
-  border-radius: 9999px;
-  filter: blur(140px);
-  pointer-events: none;
-  opacity: 0.08 !important;
+/* Secondary text */
+.text-secondary {
+  color: #5c5c5c;
+  font-weight: 500;
 }
 
-/* ---------- Bottom blur overlay (mask fade) ---------- */
-.bottom-blur-overlay {
-  position: absolute;
-  inset: 0;
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  mask-image: linear-gradient(to top, black 0%, transparent 45%);
-  -webkit-mask-image: linear-gradient(to top, black 0%, transparent 45%);
-  pointer-events: none;
-  z-index: 1;
+/* Muted/tertiary text */
+.text-muted {
+  color: #a3a3a3;
+  font-weight: 500;
+}
+
+/* Card surface — flat, no shadow, subtle border */
+.card-surface {
+  background: #ededed;
+  border: none;
+  border-radius: 24px;
+}
+
+/* Hairline border — structure without elevation */
+.border-hairline {
+  border: 1px solid #e5e7eb;
+}
+
+/* Dark filled button — the only high-contrast element */
+.btn-primary {
+  background: #242424;
+  color: #fafafa;
+  border: none;
+  border-radius: 16px;
+  padding: 8px 20px;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s ease-out;
+  box-shadow: inset 0 4px 4px -2px rgba(255, 255, 255, 0.25),
+              inset 0 -4px 4px -2px rgba(0, 0, 0, 0.25);
+}
+
+.btn-primary:hover {
+  background: #171717;
+}
+
+/* Ghost/outlined button */
+.btn-secondary {
   background: transparent;
+  color: #171717;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 8px 20px;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  transition: border-color 0.2s ease-out, color 0.2s ease-out;
 }
 
-/* Clean surface — minimal backdrop blur, subtle border. No gradient overlay. */
-.liquid-glass {
-  background: rgba(255, 255, 255, 0.02);
-  backdrop-filter: blur(1px);
-  -webkit-backdrop-filter: blur(1px);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  box-shadow: none;
-  position: relative;
-  overflow: hidden;
+.btn-secondary:hover {
+  border-color: #171717;
+  color: #171717;
 }
 
-/* Link hover — subtle color shift, no glow bloom. */
-.glow-on-hover {
-  transition: color 0.2s ease-out;
-  color: inherit;
+/* Eyebrow / label text */
+.eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #a3a3a3;
+  font-weight: 600;
 }
 
-.glow-on-hover:hover {
-  color: #00ff88;
+/* Links — simple underline on hover */
+a {
+  color: #171717;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease-out;
 }
 
+a:hover {
+  border-bottom-color: #171717;
+}
+
+/* Selection */
 ::selection {
-  background: rgba(0, 255, 136, 0.3);
-  color: #f5f5f5;
-}
-
-/* Film-grain overlay removed — cleaner aesthetic, less visual noise. */
-
-/* ---------- Glow effect (hover-only, pure CSS so it costs nothing at rest) ---------- */
-@keyframes glowPulse {
-  0%, 100% { opacity: 0.4; transform: scale(1); }
-  50% { opacity: 0.9; transform: scale(1.06); }
-}
-@keyframes glowBreathe {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 0.7; }
+  background: #e5e7eb;
+  color: #171717;
 }
 @keyframes glowRotate {
   from { transform: rotate(0deg); }
