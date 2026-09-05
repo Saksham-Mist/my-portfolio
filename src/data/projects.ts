@@ -15,6 +15,24 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: "rag-pipeline",
+    title: "RAG + LangChain Pipeline (Async, Queue-Based)",
+    techStack: [
+      { name: "Python", category: "backend" },
+      { name: "LangChain", category: "backend" },
+      { name: "Qdrant", category: "database" },
+      { name: "FastAPI", category: "backend" },
+      { name: "Redis/Valkey", category: "backend" },
+      { name: "Docker", category: "devops" },
+    ],
+    bullets: [
+      "Built a production RAG pipeline with Gemini-grounded retrieval using Qdrant vector DB; batched ingestion with tuned chunk overlap for reliable corpus indexing at scale.",
+      "Re-architected sync pipeline into async job queue: FastAPI enqueues /chat, RQ workers process jobs asynchronously, /job-status polls results.",
+      "Orchestrated with Docker Compose for horizontal worker scaling and concurrent request handling.",
+    ],
+    githubUrl: "https://github.com/Saksham-Mist/rag-langchain-pipeline",
+  },
+  {
     id: "url-shortener",
     title: "URL Shortener API with Click Analytics",
     techStack: [
@@ -23,50 +41,30 @@ export const projects: Project[] = [
       { name: "SQLAlchemy", category: "backend" },
       { name: "pytest", category: "testing" },
       { name: "Alembic", category: "devops" },
-      { name: "async/await", category: "backend" },
     ],
     bullets: [
-      "Base62 short-code generation with real-time click analytics, deployed on Railway + PostgreSQL.",
-      "13/13 tests passing (pytest + async); debugged an async connection-pool issue in production.",
-      "Normalized schema with indexed lookups, FK cascades, and Alembic migrations.",
+      "Production-grade REST API with collision-free short-code generation and real-time click analytics, deployed on Railway with PostgreSQL (Neon).",
+      "Built 13-test suite with pytest + pytest-asyncio covering core functionality, connection pooling, and edge cases.",
+      "Normalized PostgreSQL schema with indexed columns, FK constraints, and Alembic migrations; prevented SQL injection via parameterized queries.",
     ],
     githubUrl: "https://github.com/Saksham-Mist/url-shortner",
   },
   {
     id: "mini-ats",
-    title: "Mini ATS - Candidate Pipeline Tool",
+    title: "Mini ATS – Candidate Pipeline Tool",
     techStack: [
       { name: "React", category: "frontend" },
       { name: "TypeScript", category: "frontend" },
-      { name: "Tailwind CSS", category: "frontend" },
       { name: "ASP.NET Core", category: "backend" },
       { name: "Entity Framework Core", category: "backend" },
       { name: "SQLite", category: "database" },
       { name: "Docker", category: "devops" },
-      { name: "Railway", category: "devops" },
     ],
     bullets: [
-      "Full-stack ATS: job postings, resume uploads, and a 5-stage recruiter pipeline.",
-      "5-endpoint ASP.NET Core API with EF Core, cascading status updates, and file handling.",
-      "Responsive React + TypeScript UI, deployed on Vercel with a Dockerized Railway backend.",
+      "Full-stack applicant tracking system with job posting, PDF/DOCX resume upload, and 5-stage recruiter pipeline (Applied → Rejected/Offer).",
+      "Designed 5-endpoint REST API in ASP.NET Core (Minimal API) with EF Core, normalized Job–Candidate relational model, and multipart file-upload handling.",
+      "Frontend on Vercel, backend on Railway via Docker; made deliberate trade-offs (SQLite for iteration, Minimal API over MVC) to prioritize a fully working system.",
     ],
     githubUrl: "https://github.com/Saksham-Mist/mini-ats",
-  },
-  {
-    id: "rate-limiter",
-    title: "Token Bucket Rate Limiter Service",
-    techStack: [
-      { name: "Python", category: "backend" },
-      { name: "Flask", category: "backend" },
-      { name: "Threading", category: "backend" },
-      { name: "Concurrency Control", category: "backend" },
-      { name: "Lock Management", category: "backend" },
-    ],
-    bullets: [
-      "Token bucket + sliding window rate limiting, built from first principles.",
-      "Thread-safe per-client locking — zero double-spending across 150 concurrent requests.",
-      "Admin endpoint for configuring per-client rate, burst size, and algorithm.",
-    ],
-    githubUrl: "https://github.com/Saksham-Mist/token-bucket-rate-limiter",
   },
 ];
