@@ -1,20 +1,9 @@
 "use client";
 
 import { useLayoutEffect, useRef, useState, type CSSProperties } from "react";
-import { ArrowRight, ChevronLeft, ChevronRight, Github } from "lucide-react";
-import { InView } from "@/components/motion-primitives/in-view";
-import { ProgressiveBlur } from "@/components/motion-primitives/progressive-blur";
-import { CTAButton } from "@/components/CTAButton";
+import { ChevronLeft, ChevronRight, Github } from "lucide-react";
 import { projects } from "@/data/projects";
 import { cn } from "@/lib/utils";
-
-const CATEGORY_COLORS: Record<string, string> = {
-  backend: "bg-neon/10 text-neon border-neon/30",
-  database: "bg-sky-400/10 text-sky-300 border-sky-400/30",
-  testing: "bg-amber-400/10 text-amber-300 border-amber-400/30",
-  devops: "bg-fuchsia-400/10 text-fuchsia-300 border-fuchsia-400/30",
-  frontend: "bg-indigo-400/10 text-indigo-300 border-indigo-400/30",
-};
 
 export function Projects() {
   const [index, setIndex] = useState(0);
@@ -106,11 +95,10 @@ export function Projects() {
                     href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="glow-on-hover mt-6 inline-flex items-center gap-1.5 rounded text-sm font-semibold text-neon focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neon focus-visible:ring-offset-2 focus-visible:ring-offset-bg-alt"
+                    className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-ink-black hover:text-pencil transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink-black focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
                   >
                     <Github size={16} />
                     GitHub
-                    <ArrowRight size={14} />
                   </a>
                 </article>
               </div>
@@ -122,9 +110,13 @@ export function Projects() {
 
       <div className="mt-8 flex flex-col items-center gap-4 sm:gap-6">
         <div className="flex items-center justify-center gap-6">
-          <CTAButton variant="tertiary" size="icon" ariaLabel="Previous project" onClick={goPrev}>
+          <button
+            onClick={goPrev}
+            aria-label="Previous project"
+            className="flex items-center justify-center w-10 h-10 rounded-lg border border-hairline text-pencil hover:bg-card hover:text-ink-black transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink-black focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
+          >
             <ChevronLeft size={18} />
-          </CTAButton>
+          </button>
           <div className="flex items-center gap-2">
             {projects.map((project, i) => (
               <button
@@ -139,9 +131,13 @@ export function Projects() {
               />
             ))}
           </div>
-          <CTAButton variant="tertiary" size="icon" ariaLabel="Next project" onClick={goNext}>
+          <button
+            onClick={goNext}
+            aria-label="Next project"
+            className="flex items-center justify-center w-10 h-10 rounded-lg border border-hairline text-pencil hover:bg-card hover:text-ink-black transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink-black focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
+          >
             <ChevronRight size={18} />
-          </CTAButton>
+          </button>
         </div>
         <span className="text-xs font-mono text-text-secondary">
           {index + 1} of {projects.length}
