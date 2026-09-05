@@ -127,7 +127,7 @@ export function Hero() {
         style={{ animationDelay: "550ms" }}
       >
         <span className="h-2 w-2 rounded-full bg-neon" aria-hidden />
-        <span className="font-mono text-xs font-medium text-text-primary">Open to SDE roles</span>
+        <span className="font-mono text-xs font-medium text-text-primary">Available for backend roles</span>
       </div>
     </section>
   );
