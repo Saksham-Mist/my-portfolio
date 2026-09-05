@@ -42,18 +42,18 @@ export function Projects() {
   }, [index]);
 
   return (
-    <section id="projects" className="w-full bg-bg px-5 py-10 sm:px-10 sm:py-16">
-      <InView className="mx-auto max-w-4xl">
-        <span className="eyebrow">(01) &mdash; Selected work</span>
-        <h2 className="mt-3 font-display text-3xl font-semibold text-text-primary sm:text-4xl">
-          Featured Projects
+    <section id="projects" className="w-full bg-canvas px-4 py-section sm:px-6">
+      <div className="mx-auto max-w-4xl mb-12">
+        <span className="eyebrow">Projects</span>
+        <h2 className="mt-6 font-serif text-4xl sm:text-5xl leading-tight text-ink-black">
+          Things I've shipped
         </h2>
-      </InView>
+        <p className="mt-4 max-w-2xl text-lg text-pencil leading-relaxed">
+          Three services built end-to-end — designed, tested, and deployed. Each one is live on GitHub.
+        </p>
+      </div>
 
-      <InView
-        className="relative mx-auto mt-10 w-full max-w-4xl"
-        transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-      >
+      <div className="relative mx-auto w-full max-w-4xl">
         <div
           className="relative w-full min-h-[340px] overflow-hidden transition-[height] duration-300 ease-out"
           style={{ height: cardHeight ? `${cardHeight}px` : undefined }}
@@ -78,18 +78,15 @@ export function Projects() {
               >
                 <article
                   ref={offset === 0 ? activeCardRef : undefined}
-                  className="w-[90%] max-w-[600px] rounded-xl border border-border bg-bg-alt p-6 text-left sm:p-8"
+                  className="w-[90%] max-w-[600px] rounded-lg border border-hairline bg-card p-7 text-left sm:p-8"
                 >
                   <h3 className="font-display text-lg font-semibold text-text-primary">{project.title}</h3>
 
-                  <div className="mt-3 flex flex-wrap gap-2">
+                  <div className="mt-4 flex flex-wrap gap-2">
                     {project.techStack.map((tech) => (
                       <span
                         key={tech.name}
-                        className={cn(
-                          "rounded-full border px-2.5 py-1 text-xs font-medium",
-                          CATEGORY_COLORS[tech.category]
-                        )}
+                        className="border border-hairline rounded px-3 py-1.5 text-xs font-mono text-pencil bg-canvas/40"
                       >
                         {tech.name}
                       </span>
@@ -121,17 +118,7 @@ export function Projects() {
           })}
         </div>
 
-        <ProgressiveBlur
-          direction="left"
-          blurIntensity={1}
-          className="pointer-events-none absolute top-0 left-0 z-30 hidden h-full w-[200px] sm:block"
-        />
-        <ProgressiveBlur
-          direction="right"
-          blurIntensity={1}
-          className="pointer-events-none absolute top-0 right-0 z-30 hidden h-full w-[200px] sm:block"
-        />
-      </InView>
+      </div>
 
       <div className="mt-8 flex flex-col items-center gap-4 sm:gap-6">
         <div className="flex items-center justify-center gap-6">
@@ -146,8 +133,8 @@ export function Projects() {
                 aria-current={i === index}
                 onClick={() => setIndex(i)}
                 className={cn(
-                  "h-1.5 rounded-full transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neon focus-visible:ring-offset-2 focus-visible:ring-offset-bg",
-                  i === index ? "w-6 bg-neon" : "w-1.5 bg-border"
+                  "h-1 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink-black focus-visible:ring-offset-2 focus-visible:ring-offset-canvas",
+                  i === index ? "w-6 bg-ink-black" : "w-1 bg-hairline"
                 )}
               />
             ))}

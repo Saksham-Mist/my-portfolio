@@ -1,7 +1,6 @@
 "use client";
 
 import { Mail, Github, Linkedin, Code } from "lucide-react";
-import { InView } from "@/components/motion-primitives/in-view";
 
 const SOCIALS = [
   { label: "GitHub", href: "https://github.com/Saksham-Mist", icon: Github },
@@ -13,31 +12,28 @@ export function Contact() {
   const year = new Date().getFullYear();
 
   return (
-    <footer
-      id="contact"
-      className="w-full bg-gradient-to-br from-neon to-bg px-6 py-16 sm:py-20 md:py-32 md:px-10"
-    >
-      <InView className="mx-auto max-w-4xl text-center">
-        <span className="font-mono text-xs font-semibold tracking-[0.14em] text-[#08321d] uppercase">
-          (04) &mdash; Get in touch
-        </span>
-        <h2 className="mt-3 font-display text-4xl font-bold text-white sm:text-5xl">
-          Let&apos;s Connect
+    <footer id="contact" className="w-full bg-canvas px-4 py-section sm:px-6 border-t border-hairline">
+      <div className="mx-auto max-w-4xl text-center">
+        <span className="eyebrow">Contact</span>
+        <h2 className="mt-6 font-serif text-4xl sm:text-5xl leading-tight text-ink-black">
+          Let's build something
+          <br />
+          <span className="text-pencil">worth shipping.</span>
         </h2>
 
-        <p className="mt-4 text-base text-white/90 sm:text-lg">
-          Open to backend and SDE roles — reach out and let&apos;s talk.
+        <p className="mt-6 text-lg text-pencil leading-relaxed">
+          Open to backend and SDE roles — reach out and let's talk.
         </p>
 
         <a
           href="mailto:ssharma_be23@thapar.edu"
-          className="mt-8 inline-flex items-center gap-2 rounded text-lg font-semibold text-white transition-colors hover:text-black/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-neon"
+          className="mt-10 inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-ink-black text-canvas font-semibold transition-all hover:bg-pencil focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink-black focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
         >
-          <Mail size={20} />
-          Email
+          <Mail size={18} />
+          Email me
         </a>
 
-        <div className="mt-10 flex justify-center gap-6">
+        <div className="mt-12 flex justify-center gap-4">
           {SOCIALS.map((social) => {
             const Icon = social.icon;
             return (
@@ -47,18 +43,18 @@ export function Contact() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={social.label}
-                className="rounded text-white transition-all duration-300 hover:scale-125 hover:text-black/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-neon"
+                className="p-3 rounded-lg border border-hairline text-pencil hover:text-ink-black hover:border-ink-black transition-all hover:bg-card focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink-black focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
               >
-                <Icon size={24} />
+                <Icon size={20} />
               </a>
             );
           })}
         </div>
 
-        <p className="mt-12 font-mono text-xs text-white/70">
-          &copy; {year}. Made with Next.js &bull; Built with passion.
+        <p className="mt-16 pt-8 border-t border-hairline font-mono text-xs text-faint">
+          © {year} Saksham Sharma. Built with Next.js.
         </p>
-      </InView>
+      </div>
     </footer>
   );
 }

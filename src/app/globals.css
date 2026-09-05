@@ -120,11 +120,13 @@ p {
 
 /* Eyebrow / label text */
 .eyebrow {
-  font-size: 12px;
-  letter-spacing: 0.05em;
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: #a3a3a3;
   font-weight: 600;
+  margin-bottom: 12px;
 }
 
 /* Links — simple underline on hover */
@@ -144,23 +146,9 @@ a:hover {
   background: #e5e7eb;
   color: #171717;
 }
-@keyframes glowRotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-/* ---------- Shared keyboard-focus ring (WCAG 2.4.7) ---------- */
-.focus-ring {
-  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neon focus-visible:ring-offset-2 focus-visible:ring-offset-bg;
-}
-
-/* ---------- Editorial furniture ---------- */
-.eyebrow {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: #7de8ac;
+/* Utility for horizontal sections */
+.section {
+  padding: 64px 0;
 }
 
 /* ---------- Respect prefers-reduced-motion ---------- */
