@@ -2,7 +2,7 @@
 
 export function About() {
   return (
-    <section id="about" className="w-full bg-canvas px-4 py-16 sm:px-6 md:py-24">
+    <section id="about" className="w-full bg-canvas px-4 py-12 sm:px-6 md:py-16">
       <div className="mx-auto max-w-4xl">
         <span className="eyebrow">About</span>
         <h2 className="mt-6 mb-12 font-serif text-4xl sm:text-5xl leading-tight text-ink-black">

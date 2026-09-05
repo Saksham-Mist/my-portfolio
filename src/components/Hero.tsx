@@ -9,7 +9,7 @@ export function Hero() {
   };
 
   return (
-    <section id="top" className="relative w-full bg-canvas px-4 py-20 sm:px-6 md:py-32">
+    <section id="top" className="relative w-full bg-canvas px-4 py-16 sm:px-6 md:py-24">
       <Navbar />
 
       <div className="mx-auto max-w-4xl pt-12 sm:pt-20">

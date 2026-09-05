@@ -39,8 +39,8 @@ const config: Config = {
         "fade-in": "fadeIn 0.3s ease-out forwards",
       },
       spacing: {
-        "section": "64px",
-        "section-sm": "48px",
+        "section": "48px",
+        "section-sm": "32px",
       },
     },
   },
