@@ -22,9 +22,9 @@ export function About() {
         >
           <div className="max-w-[700px] rounded-xl border border-border bg-bg-alt p-8 text-left sm:p-12">
             <p className="text-[15px] leading-[1.8] text-text-secondary sm:text-base">
-              I&apos;m a backend engineer who&apos;s still figuring out AI as I go. I
-              learn best by building — trying out generative models, debugging
-              whatever breaks in production, and slowly getting a feel for how to make
+              Backend engineer exploring agentic systems and production infrastructure.
+              I learn best by building — trying out generative models, debugging
+              whatever breaks in production, and getting a feel for how to make
               systems{" "}
               <span className="font-semibold text-text-primary">
                 smarter and more efficient

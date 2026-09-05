@@ -67,7 +67,7 @@ export function Hero() {
           className="animate-blur-fade-up max-w-4xl font-display text-[2.1rem] font-semibold leading-[0.98] tracking-[-0.02em] text-text-primary sm:text-4xl md:text-5xl lg:text-[4.25rem] xl:text-[4.75rem]"
           style={{ animationDelay: "100ms" }}
         >
-          Learning Backend <span className="text-neon mx-[0.18em]">&amp;</span> Agentic Full&#8209;Stack
+          Backend Engineer <span className="text-neon mx-[0.18em]">•</span> Building Agentic AI
         </h1>
 
         {/* Description */}
@@ -75,8 +75,7 @@ export function Hero() {
           className="animate-blur-fade-up mt-5 max-w-md text-sm text-text-secondary sm:mt-6 sm:text-base"
           style={{ animationDelay: "200ms" }}
         >
-          Backend fundamentals today, agentic AI systems next — learning
-          both by actually building them.
+          Debugging production systems, exploring agentic architectures, and building systems that actually work at scale.
         </p>
 
         {/* Tech slider */}

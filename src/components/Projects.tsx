@@ -133,27 +133,32 @@ export function Projects() {
         />
       </InView>
 
-      <div className="mt-6 flex items-center justify-center gap-6">
-        <CTAButton variant="tertiary" size="icon" ariaLabel="Previous project" onClick={goPrev}>
-          <ChevronLeft size={18} />
-        </CTAButton>
-        <div className="flex items-center gap-2">
-          {projects.map((project, i) => (
-            <button
-              key={project.id}
-              aria-label={`Go to ${project.title}`}
-              aria-current={i === index}
-              onClick={() => setIndex(i)}
-              className={cn(
-                "h-1.5 rounded-full transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neon focus-visible:ring-offset-2 focus-visible:ring-offset-bg",
-                i === index ? "w-6 bg-neon" : "w-1.5 bg-border"
-              )}
-            />
-          ))}
+      <div className="mt-8 flex flex-col items-center gap-4 sm:gap-6">
+        <div className="flex items-center justify-center gap-6">
+          <CTAButton variant="tertiary" size="icon" ariaLabel="Previous project" onClick={goPrev}>
+            <ChevronLeft size={18} />
+          </CTAButton>
+          <div className="flex items-center gap-2">
+            {projects.map((project, i) => (
+              <button
+                key={project.id}
+                aria-label={`Go to ${project.title}`}
+                aria-current={i === index}
+                onClick={() => setIndex(i)}
+                className={cn(
+                  "h-1.5 rounded-full transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neon focus-visible:ring-offset-2 focus-visible:ring-offset-bg",
+                  i === index ? "w-6 bg-neon" : "w-1.5 bg-border"
+                )}
+              />
+            ))}
+          </div>
+          <CTAButton variant="tertiary" size="icon" ariaLabel="Next project" onClick={goNext}>
+            <ChevronRight size={18} />
+          </CTAButton>
         </div>
-        <CTAButton variant="tertiary" size="icon" ariaLabel="Next project" onClick={goNext}>
-          <ChevronRight size={18} />
-        </CTAButton>
+        <span className="text-xs font-mono text-text-secondary">
+          {index + 1} of {projects.length}
+        </span>
       </div>
     </section>
   );
