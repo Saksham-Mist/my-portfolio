@@ -36,22 +36,22 @@ export function FloatingResumeButton() {
   return (
     <div ref={ref} className="fixed bottom-4 right-4 z-40 flex flex-col items-end sm:bottom-6 sm:right-6">
       {expanded && (
-        <div className="liquid-glass mb-3 flex flex-col gap-2 rounded-2xl p-3 animate-fade-in">
-          <p className="flex items-center gap-1.5 px-1 text-xs font-medium text-text-secondary">
+        <div className="mb-3 flex flex-col gap-2 rounded-lg p-3 bg-card border border-hairline">
+          <p className="flex items-center gap-1.5 px-1 text-xs font-medium text-faint">
             <FileText size={12} />
             Resume
           </p>
           <div className="flex gap-2">
             <button
               onClick={handleDownload}
-              className="focus-ring glow-on-hover flex items-center gap-1.5 whitespace-nowrap rounded-full bg-neon px-4 py-2 text-sm font-semibold text-[#04140b]"
+              className="flex items-center gap-1.5 whitespace-nowrap rounded-lg bg-ink-black px-4 py-2 text-sm font-semibold text-canvas hover:bg-pencil transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink-black focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
             >
               <Download size={14} />
               Download
             </button>
             <button
               onClick={handleOpen}
-              className="focus-ring glow-on-hover flex items-center gap-1.5 whitespace-nowrap rounded-full border border-neon px-4 py-2 text-sm font-semibold text-neon"
+              className="flex items-center gap-1.5 whitespace-nowrap rounded-lg border border-hairline px-4 py-2 text-sm font-semibold text-ink-black hover:bg-hairline/30 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink-black focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
             >
               <ExternalLink size={14} />
               Open
@@ -65,12 +65,9 @@ export function FloatingResumeButton() {
         onClick={() => setExpanded((v) => !v)}
         aria-label="Resume options"
         aria-expanded={expanded}
-        className={cn(
-          "focus-ring flex h-14 w-14 items-center justify-center rounded-full bg-neon text-[#04140b] shadow-lg transition-all duration-300 hover:shadow-[0_0_24px_rgba(0,255,136,0.65)] hover:scale-105",
-          !expanded && "animate-pulse-glow"
-        )}
+        className="flex h-12 w-12 items-center justify-center rounded-lg bg-ink-black text-canvas shadow-lg transition-all duration-300 hover:bg-pencil focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink-black focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
       >
-        <Download size={24} />
+        <Download size={20} />
       </button>
     </div>
   );
