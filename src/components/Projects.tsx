@@ -1,7 +1,7 @@
 "use client";
 
 import { useLayoutEffect, useRef, useState, type CSSProperties } from "react";
-import { ChevronLeft, ChevronRight, Github } from "lucide-react";
+import { ChevronLeft, ChevronRight, ExternalLink, Github } from "lucide-react";
 import { projects } from "@/data/projects";
 import { cn } from "@/lib/utils";
 
@@ -38,7 +38,7 @@ export function Projects() {
           Things I've shipped
         </h2>
         <p className="mt-4 max-w-2xl text-lg text-pencil leading-relaxed">
-          Three services built end-to-end — designed, tested, and deployed. Each one is live on GitHub.
+          Services built end-to-end — designed, tested, and deployed. Each one is live on GitHub.
         </p>
       </div>
 
@@ -91,15 +91,28 @@ export function Projects() {
                     ))}
                   </ul>
 
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-ink-black hover:text-pencil transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink-black focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
-                  >
-                    <Github size={16} />
-                    GitHub
-                  </a>
+                  <div className="mt-6 flex flex-wrap items-center gap-6">
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-sm font-semibold text-ink-black hover:text-pencil transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink-black focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
+                    >
+                      <Github size={16} />
+                      GitHub
+                    </a>
+                    {project.liveUrl && (
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-sm font-semibold text-ink-black hover:text-pencil transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink-black focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
+                      >
+                        <ExternalLink size={16} />
+                        Live demo
+                      </a>
+                    )}
+                  </div>
                 </article>
               </div>
             );

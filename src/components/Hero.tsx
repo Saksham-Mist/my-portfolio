@@ -49,7 +49,7 @@ export function Hero() {
         {/* Status badge */}
         <div className="mt-12 inline-block">
           <div className="border-hairline rounded-full px-4 py-2 text-sm text-pencil">
-            ✓ Available for backend roles
+            ✓ Available for AI and backend roles
           </div>
         </div>
       </div>

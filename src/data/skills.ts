@@ -9,7 +9,6 @@ import {
   Server,
   Globe,
   Network,
-  HardDrive,
   Layers,
   Boxes,
   Atom,
@@ -17,19 +16,26 @@ import {
   Palette,
   Flame,
   RefreshCw,
-  CheckCircle2,
   Container,
-  Train,
   GitBranch,
-  GitCommitHorizontal,
   Binary,
-  Lock,
+  Bot,
+  Sparkles,
+  Workflow,
+  Link,
+  Search,
+  CirclePlay,
+  Ship,
+  Cloud,
+  Shapes,
+  Box,
   type LucideIcon,
 } from "lucide-react";
 
 export type SkillCategory =
   | "language"
   | "backend"
+  | "ai"
   | "database"
   | "frontend"
   | "testing"
@@ -44,57 +50,65 @@ export interface Skill {
   icon: LucideIcon;
 }
 
+// Proficiency is a percentage. Each category lists its top skills (Comfortable)
+// followed by the ones still Developing.
 export const skills: Skill[] = [
-  // Core strengths (reordered to lead with highest-impact backend skills)
-  { id: "backend-fastapi", name: "FastAPI", proficiency: 35, category: "backend", icon: Zap },
-  { id: "db-postgres", name: "PostgreSQL", proficiency: 34, category: "database", icon: Database },
-  { id: "test-pytest", name: "pytest", proficiency: 33, category: "testing", icon: Flame },
-  { id: "cs-sysdesign", name: "System Design", proficiency: 28, category: "core-cs", icon: Network },
-  { id: "cs-concurrency", name: "Concurrency Control", proficiency: 30, category: "core-cs", icon: Lock },
+  // Languages
+  { id: "lang-python", name: "Python", proficiency: 70, category: "language", icon: Code2 },
+  { id: "lang-sql", name: "SQL", proficiency: 66, category: "language", icon: Database },
+  { id: "lang-cpp", name: "C/C++", proficiency: 62, category: "language", icon: Cpu },
+  { id: "lang-js", name: "JavaScript", proficiency: 52, category: "language", icon: Braces },
+  { id: "lang-ts", name: "TypeScript", proficiency: 48, category: "language", icon: FileType },
 
-  // Backend frameworks
-  { id: "backend-flask", name: "Flask", proficiency: 33, category: "backend", icon: FlaskConical },
-  { id: "backend-aspnet", name: "ASP.NET Core", proficiency: 31, category: "backend", icon: Server },
-  { id: "backend-rest", name: "REST APIs", proficiency: 34, category: "backend", icon: Network },
-  { id: "backend-node", name: "Node.js", proficiency: 29, category: "backend", icon: Globe },
+  // Backend
+  { id: "backend-fastapi", name: "FastAPI", proficiency: 70, category: "backend", icon: Zap },
+  { id: "backend-rest", name: "REST APIs", proficiency: 66, category: "backend", icon: Network },
+  { id: "backend-flask", name: "Flask", proficiency: 62, category: "backend", icon: FlaskConical },
+  { id: "backend-node", name: "Node.js", proficiency: 48, category: "backend", icon: Globe },
+  { id: "backend-aspnet", name: "ASP.NET Core", proficiency: 44, category: "backend", icon: Server },
+
+  // AI & Agents
+  { id: "ai-llm-apis", name: "LLM APIs (Gemini)", proficiency: 70, category: "ai", icon: Sparkles },
+  { id: "ai-rag", name: "RAG Pipelines", proficiency: 66, category: "ai", icon: Search },
+  { id: "ai-langchain", name: "LangChain", proficiency: 62, category: "ai", icon: Link },
+  { id: "ai-langgraph", name: "LangGraph", proficiency: 52, category: "ai", icon: Workflow },
+  { id: "ai-agentic", name: "Agentic Workflows", proficiency: 48, category: "ai", icon: Bot },
 
   // Databases
-  { id: "db-sqlite", name: "SQLite", proficiency: 32, category: "database", icon: HardDrive },
-  { id: "db-sqlalchemy", name: "SQLAlchemy ORM", proficiency: 33, category: "database", icon: Layers },
-  { id: "db-efcore", name: "Entity Framework Core", proficiency: 31, category: "database", icon: Boxes },
+  { id: "db-postgres", name: "PostgreSQL", proficiency: 70, category: "database", icon: Database },
+  { id: "db-qdrant", name: "Qdrant (Vector DB)", proficiency: 66, category: "database", icon: Boxes },
+  { id: "db-redis", name: "Redis/Valkey", proficiency: 62, category: "database", icon: Layers },
+  { id: "db-sqlalchemy", name: "SQLAlchemy ORM", proficiency: 52, category: "database", icon: Layers },
 
-  // Testing
-  { id: "test-pytest-asyncio", name: "pytest-asyncio", proficiency: 31, category: "testing", icon: RefreshCw },
-  { id: "test-automated", name: "Automated Testing", proficiency: 30, category: "testing", icon: CheckCircle2 },
+  // DevOps & Cloud
+  { id: "devops-docker", name: "Docker", proficiency: 70, category: "devops", icon: Container },
+  { id: "devops-git", name: "Git/GitHub", proficiency: 66, category: "devops", icon: GitBranch },
+  { id: "devops-gha", name: "GitHub Actions (CI/CD)", proficiency: 62, category: "devops", icon: CirclePlay },
+  { id: "devops-k8s", name: "Kubernetes", proficiency: 48, category: "devops", icon: Ship },
+  { id: "devops-railway-vercel", name: "Railway / Vercel", proficiency: 44, category: "devops", icon: Triangle },
+  { id: "devops-gcp", name: "GCP", proficiency: 25, category: "devops", icon: Cloud },
 
   // Core CS
-  { id: "cs-ds", name: "Data Structures", proficiency: 33, category: "core-cs", icon: Layers },
-  { id: "cs-algo", name: "Algorithms", proficiency: 31, category: "core-cs", icon: Binary },
-  { id: "cs-rest", name: "REST APIs", proficiency: 32, category: "core-cs", icon: Network },
+  { id: "cs-sysdesign", name: "System Design", proficiency: 70, category: "core-cs", icon: Network },
+  { id: "cs-dbms", name: "DBMS", proficiency: 66, category: "core-cs", icon: Database },
+  { id: "cs-ds", name: "Data Structures", proficiency: 62, category: "core-cs", icon: Layers },
+  { id: "cs-algo", name: "Algorithms", proficiency: 52, category: "core-cs", icon: Binary },
+  { id: "cs-oop", name: "OOP", proficiency: 48, category: "core-cs", icon: Shapes },
 
-  // DevOps & Tools
-  { id: "devops-docker", name: "Docker", proficiency: 30, category: "devops", icon: Container },
-  { id: "devops-git", name: "Git/GitHub", proficiency: 32, category: "devops", icon: GitBranch },
-  { id: "devops-alembic", name: "Alembic", proficiency: 30, category: "devops", icon: GitCommitHorizontal },
-  { id: "devops-railway", name: "Railway", proficiency: 28, category: "devops", icon: Train },
-  { id: "devops-vercel", name: "Vercel", proficiency: 29, category: "devops", icon: Triangle },
-
-  // Languages
-  { id: "lang-python", name: "Python", proficiency: 30, category: "language", icon: Code2 },
-  { id: "lang-sql", name: "SQL", proficiency: 29, category: "language", icon: Database },
-  { id: "lang-ts", name: "TypeScript", proficiency: 27, category: "language", icon: FileType },
-  { id: "lang-js", name: "JavaScript", proficiency: 28, category: "language", icon: Braces },
-  { id: "lang-cpp", name: "C/C++", proficiency: 25, category: "language", icon: Cpu },
+  // Testing
+  { id: "test-pytest", name: "pytest", proficiency: 48, category: "testing", icon: Flame },
+  { id: "test-pytest-asyncio", name: "pytest-asyncio", proficiency: 25, category: "testing", icon: RefreshCw },
 
   // Frontend
-  { id: "fe-tailwind", name: "Tailwind CSS", proficiency: 30, category: "frontend", icon: Palette },
-  { id: "fe-react", name: "React", proficiency: 29, category: "frontend", icon: Atom },
-  { id: "fe-nextjs", name: "Next.js", proficiency: 28, category: "frontend", icon: Triangle },
+  { id: "fe-react", name: "React", proficiency: 70, category: "frontend", icon: Atom },
+  { id: "fe-tailwind", name: "Tailwind CSS", proficiency: 66, category: "frontend", icon: Palette },
+  { id: "fe-html-css", name: "HTML/CSS", proficiency: 62, category: "frontend", icon: Code2 },
+  { id: "fe-nextjs", name: "Next.js", proficiency: 52, category: "frontend", icon: Triangle },
+  { id: "fe-threejs", name: "Three.js", proficiency: 48, category: "frontend", icon: Box },
 ];
 
 export function proficiencyLabel(p: number): string {
-  if (p >= 33) return "Comfortable";
-  if (p >= 30) return "Developing";
-  if (p >= 27) return "Familiar";
+  if (p >= 60) return "Comfortable";
+  if (p >= 40) return "Developing";
   return "Just started";
 }

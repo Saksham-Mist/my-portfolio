@@ -5,11 +5,12 @@ import { skills, proficiencyLabel } from "@/data/skills";
 const skillsByCategory = {
   language: "Languages",
   backend: "Backend",
+  ai: "AI & Agents",
   database: "Databases",
-  frontend: "Frontend",
-  testing: "Testing",
-  devops: "DevOps & Tools",
+  devops: "DevOps & Cloud",
   "core-cs": "Core CS",
+  testing: "Testing",
+  frontend: "Frontend",
 };
 
 export function Skills() {
@@ -20,9 +21,8 @@ export function Skills() {
   }));
 
   const getProfColor = (p: number) => {
-    if (p >= 33) return "from-green-600 to-emerald-500";
-    if (p >= 30) return "from-amber-600 to-amber-400";
-    if (p >= 27) return "from-cyan-600 to-cyan-400";
+    if (p >= 60) return "from-green-600 to-emerald-500";
+    if (p >= 40) return "from-amber-600 to-amber-400";
     return "from-gray-500 to-gray-400";
   };
 
@@ -58,7 +58,7 @@ export function Skills() {
               <div className="space-y-5">
                 {group.items.map((skill) => {
                   const label = proficiencyLabel(skill.proficiency);
-                  const percentage = Math.min((skill.proficiency / 35) * 100, 100);
+                  const percentage = Math.min(skill.proficiency, 100);
                   const colorClass = getProfColor(skill.proficiency);
 
                   return (
