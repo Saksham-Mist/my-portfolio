@@ -1,25 +1,31 @@
-# Saksham Sharma — Backend Portfolio
+# Saksham Sharma — AI & Backend Portfolio
 
-A portfolio site showcasing real, shipped projects — not tutorials. Built to demonstrate backend engineering, full-stack thinking, and a bias toward learning by building.
+**Live:** [sakshammist.vercel.app](https://sakshammist.vercel.app/)
+
+A portfolio site showcasing real, shipped projects — not tutorials. Built to show backend and AI engineering, production thinking, and a bias toward learning by building.
 
 ## Projects Featured
 
-Three projects you can actually use:
+Five projects, each with a public repo:
 
-- **[URL Shortener API with Click Analytics](https://github.com/Saksham-Mist/url-shortner)** — FastAPI, PostgreSQL, SQLAlchemy, pytest, Alembic. Production-grade REST API with collision-free code generation via bijection and indexed O(1) lookups.
+- **[Agentic Coding Agent](https://github.com/Saksham-Mist/agentic-coding-agent)** ([live demo](https://agentic-coding-agent.duckdns.org)) — Python, LangGraph, FastAPI, PostgreSQL, Docker, GCP. Plans, writes and verifies Python in a network-less, resource-capped Docker sandbox, self-correcting from failing tests under hard retry and token limits. 54/54 runs passed on 18 problems graded against tests 88% hidden from the model.
 
-- **[Mini ATS – Candidate Pipeline Tool](https://github.com/Saksham-Mist/mini-ats)** — React, TypeScript, ASP.NET Core, EF Core, Docker. Full-stack recruitment tool with PDF/DOCX parsing and a 5-stage pipeline.
+- **[URL Shortener API with Click Analytics](https://github.com/Saksham-Mist/url-shortner)** — FastAPI, PostgreSQL, async SQLAlchemy, pytest, Alembic. Production-grade REST API with collision-free short-code generation, real-time click analytics, and a 13-test suite.
 
-- **[Token Bucket Rate Limiter](https://github.com/Saksham-Mist/token-bucket-rate-limiter)** — Python, Flask, thread-safe concurrency. Rate limiting built from first principles with proper synchronization and zero double-spending.
+- **[RAG + LangChain Pipeline (Async, Queue-Based)](https://github.com/Saksham-Mist/rag-async-pipeline)** — LangChain, Qdrant, FastAPI, RQ, Redis/Valkey, Docker. Gemini-grounded retrieval, redesigned from a sync pipeline into an async job queue with horizontally scalable workers.
+
+- **[CI/CD Pipeline with Automated Rollback](https://github.com/Saksham-Mist/usage-metering-api)** — GitHub Actions, Docker, Kubernetes, Trivy. Gated lint → test → build → CVE scan → deploy pipeline with zero-downtime rolling updates and automatic rollback, verified in a live failure drill.
+
+- **[Mini ATS – Candidate Pipeline Tool](https://github.com/Saksham-Mist/Mini-ATS)** — React, TypeScript, ASP.NET Core, EF Core, Docker. Full-stack applicant tracking system with resume upload and a 5-stage recruiter pipeline.
 
 ## Site Sections
 
-- **Hero** — intro with quick links (resume, GitHub, LinkedIn)
-- **Projects** — interactive carousel through all three with real repos and tech stacks
-- **Skills** — scrollable gauge-based breakdown of proficiency levels
+- **Hero** — intro, availability badge, and a scrolling strip of the top 2 technologies from each project
+- **Projects** — carousel through all five, with tech stacks, GitHub links, and live demo links where available
+- **Skills** — the toolkit, grouped by area (Languages, Backend, AI & Agents, Databases, DevOps & Cloud, Core CS, Testing, Frontend) and honestly rated: Comfortable, Developing, Just started
 - **About** — how I work and what I'm learning
 - **Contact** — email, GitHub, LinkedIn, LeetCode
-- **Floating Resume Button** — download or open PDF anytime
+- **Floating Resume Button** — download or open the PDF anytime
 
 ## Stack
 
@@ -47,45 +53,39 @@ npm run lint     # Run ESLint
 
 ## Project Structure
 
-src/
-app/ # Next.js App Router
-components/
-Hero, Projects, Skills, About, Contact, Navbar
-FloatingResumeButton, CTAButton, SkillGauge, TechSlider
-motion-primitives/ # Custom animation components
-data/ # Projects, skills, tech stack (edit here to update content)
-hooks/useLenis.ts # Smooth scroll hook
-lib/ # Shared utilities
-public/
-resume.pdf # Replace with your actual resume
-
-## Before Deploying
-
-1. **Replace `public/resume.pdf`** with your actual resume (keep filename lowercase — Vercel's filesystem is case-sensitive)
-2. **Update metadata** in `src/app/layout.tsx` once you have a domain:
-```tsx
-   metadataBase: new URL('https://yourdomain.com'),
 ```
-3. **Update contact info** in `src/data/` if needed
+src/
+  app/                  # Next.js App Router (layout, page, globals, icon)
+  components/
+    Hero, Projects, Skills, About, Contact, Navbar
+    FloatingResumeButton, CTAButton, SkillGauge, TechSlider, SmoothScroll
+    motion-primitives/  # Custom animation components
+  data/                 # projects.ts, skills.ts, tech.ts — edit here to update content
+  hooks/useLenis.ts     # Smooth scroll hook
+  lib/                  # Shared utilities
+public/
+  resume.pdf            # Resume served by the floating button
+```
+
+## Updating Content
+
+- **Projects:** `src/data/projects.ts` — each project has a title, tech stack, exactly 3 bullets, a GitHub URL, and an optional `liveUrl`
+- **Skills:** `src/data/skills.ts` — `proficiency` is a percentage; 60+ shows as Comfortable, 40–59 as Developing, below 40 as Just started
+- **Hero tech strip:** `src/data/tech.ts`
+- **Resume:** replace `public/resume.pdf` (keep the filename lowercase — Vercel's filesystem is case-sensitive)
+- **Colors:** `tailwind.config.ts` or `src/app/globals.css`
 
 ## Deployment
 
 Push to `main` on GitHub → auto-deploys to Vercel. No environment variables required.
 
 To connect a custom domain:
-1. Add domain in Vercel dashboard (Settings → Domains)
-2. Point Namecheap DNS to Vercel nameservers
-3. Wait 24-48 hours for propagation
-
-## Customization
-
-- **Edit projects:** `src/data/projects.ts`
-- **Edit skills:** `src/data/skills.ts`
-- **Edit tech stack:** `src/data/techStack.ts`
-- **Change colors:** `tailwind.config.ts` or `src/app/globals.css`
+1. Add the domain in the Vercel dashboard (Settings → Domains)
+2. Point your registrar's DNS to Vercel
+3. Update `metadataBase` in `src/app/layout.tsx` to the new domain
 
 ## Notes
 
-- All three projects are real, deployed, and have working GitHub repos — no toy examples
+- Every project is real and has a working GitHub repo — no toy examples
 - The site prioritizes showing over telling; projects speak for themselves
 - Smooth scroll (Lenis) + custom animations make the experience feel premium without being over-the-top
